@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git add -v *
+git commit -m "commit from : 'date +%c'"
+git push origin master
