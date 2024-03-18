@@ -80,7 +80,7 @@ void	ft_putnbr_base(int nbr, char *base)
 		num = nbr * -1;
 	else
 		num = nbr;
-	if (num < 10)
+	if (num < base_len)
 		ft_putchar(base[num]);
 	else
 	{
@@ -93,6 +93,6 @@ int main(void)
 {
 	char *str;
 
-	str = "01";
-	ft_putnbr_base(2, str);
+	str = "poneyvif";
+	ft_putnbr_base(-35, str);
 }
