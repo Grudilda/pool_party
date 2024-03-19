@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/18 19:21:49 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/18 19:30:11 by abonte-b         ###   ########.fr       */
+/*   Created: 2024/03/17 13:44:36 by abonte-b          #+#    #+#             */
+/*   Updated: 2024/03/17 13:44:51 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,4 @@ void	ft_putstr(char *str)
 		ft_putchar(str[i]);
 		i++;
 	}
-}
-
-void	print_arg(char *str)
-{
-	ft_putstr(str);
-	ft_putchar('\n');
-}
-
-int	main(int ac, char **av)
-{
-	int	i;
-
-	i = 1;
-	if (ac != 0)
-	{
-		while (av[i])
-		{
-			print_arg(av[i]);
-			i++;
-		}
-	}
-	return (0);
 }

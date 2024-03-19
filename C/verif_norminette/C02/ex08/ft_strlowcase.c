@@ -6,11 +6,11 @@
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:30:30 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/18 18:33:01 by abonte-b         ###   ########.fr       */
+/*   Updated: 2024/03/19 16:34:24 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_strlowcase(char *str)
+char	*ft_strlowcase(char *str)
 {
 	int	i;
 

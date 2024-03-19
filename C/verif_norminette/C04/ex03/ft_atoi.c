@@ -1,52 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/18 19:21:49 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/18 19:30:11 by abonte-b         ###   ########.fr       */
+/*   Created: 2024/03/17 13:46:04 by abonte-b          #+#    #+#             */
+/*   Updated: 2024/03/19 14:56:41 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
+int	ft_atoi(char *str)
 {
 	int	i;
+	int	j;
+	int	sign;
+	int	num;
 
 	i = 0;
-	while (str[i])
+	j = 0;
+	sign = 1;
+	num = 0;
+	while (str[i] && (str[i] <= 32 || str[i] == 43 || str[i] == 45))
 	{
-		ft_putchar(str[i]);
+		if (str[i] == '-')
+			j++;
 		i++;
 	}
-}
-
-void	print_arg(char *str)
-{
-	ft_putstr(str);
-	ft_putchar('\n');
-}
-
-int	main(int ac, char **av)
-{
-	int	i;
-
-	i = 1;
-	if (ac != 0)
+	if (j % 2 != 0)
+		sign = -1;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		while (av[i])
-		{
-			print_arg(av[i]);
-			i++;
-		}
+		num = (num * 10 + (str[i] - 48));
+		i++;
 	}
-	return (0);
+	num = num * sign;
+	return (num);
 }

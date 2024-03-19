@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/18 19:21:49 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/18 19:30:11 by abonte-b         ###   ########.fr       */
+/*   Created: 2024/03/17 13:45:31 by abonte-b          #+#    #+#             */
+/*   Updated: 2024/03/17 13:45:33 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,36 +17,21 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putstr(char *str)
+void	ft_putnbr(int n)
 {
-	int	i;
+	unsigned int	num;
 
-	i = 0;
-	while (str[i])
+	if (n < 0)
+		ft_putchar('-');
+	if (n < 0)
+		num = n * -1;
+	else
+		num = n;
+	if (num < 10)
+		ft_putchar(num + 48);
+	else
 	{
-		ft_putchar(str[i]);
-		i++;
+		ft_putnbr((num / 10));
+		ft_putnbr((num % 10));
 	}
-}
-
-void	print_arg(char *str)
-{
-	ft_putstr(str);
-	ft_putchar('\n');
-}
-
-int	main(int ac, char **av)
-{
-	int	i;
-
-	i = 1;
-	if (ac != 0)
-	{
-		while (av[i])
-		{
-			print_arg(av[i]);
-			i++;
-		}
-	}
-	return (0);
 }
