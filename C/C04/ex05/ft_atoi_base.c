@@ -46,10 +46,7 @@ void	check_base(char *base)
 	
 	i = 0;
 	if (!base || ft_strlen(base) == 0 || ft_strlen(base) == 1)
-		{
-			ft_putstr("ERROR\n");
-			return;
-		}
+		return;
 	while (base[i])
 	{
 		j = i + 1;
@@ -57,10 +54,7 @@ void	check_base(char *base)
 		while (base[j])
 		{
 			if (base[i] == base[j] || base[j] == '+' || base[j] == '-')
-				{
-					ft_putstr("ERROR\n");
-					return;
-				}
+				return;
 			j++;
 		}
 		i++;
@@ -84,24 +78,20 @@ int	convert_char(char c, char *base)
 int ft_atoi_base(char *str, char *base)
 {
 	int	i;
-	int	j;
 	int	sign;
 	int	num;
 
 	i = 0;
-	j = 0;
 	sign = 1;
 	num = 0;
 	check_base(base);
-	while (str[i] && (str[i] <= 32 || str[i] == 43 || str[i] == 45))
+	while (str[i] && (str[i] <= 32 || str[i] == '+' || str[i] == '-'))
 	{
 		if (str[i] == '-')
-			j++;
+			sign = -sign;
 		i++;
 	}
-	if (j % 2 != 0)
-		sign = -1;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9') // faire une fonction qui verifie si c'est bien dans la base 
 	{
 		num = (num * (ft_strlen(base)) + (convert_char(str[i], base)));
 		i++;
