@@ -1,0 +1,59 @@
+
+
+
+
+
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+{
+	unsigned int    d_len;
+	unsigned int    s_len;
+	unsigned int    t_len;
+
+	d_len = ft_strlen(dest);
+	s_len = ft_strlen(src);
+	t_len = d_len + s_len;
+	if (size <= d_len)
+		return (size + s_len);
+	ft_strncat(dest, src, (size - d_len - 1));
+	if (t_len < size)
+		return (t_len);
+	return (size - 1);
+}
+
+unsigned int	ft_strlcat(char *dst, char *src, unsigned int dstsize)
+{
+	unsigned int c;
+	unsigned int d;
+
+	if (dstsize <= ft_strlen(dst))
+		return (dstsize + ft_strlen(src));
+	c = ft_strlen(dst);
+	d = 0;
+	while (src[d] != '\0' && c + 1 < dstsize)
+	{
+		dst[c] = src[d];
+		c++;
+		d++;
+	}
+	dst[c] = '\0';
+	return (ft_strlen(dst) + ft_strlen(&src[d]));
+}
+
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+{
+	int	dest_size;
+	unsigned int	i;
+
+	if (!src || !dest)
+		return (0);
+	dest_size = 0;
+	while (dest[dest_size])
+		dest_size++;
+	i = 0;
+	while (src[i] && i <= size)
+	{
+		dest[dest_size + i] = src[i];
+		i++;
+	}
+	return (dest_size + i);
+}
