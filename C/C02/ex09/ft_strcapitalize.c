@@ -42,16 +42,14 @@
 // 	return (str);
 // }
 
-int	iznogood(char *str)
+int	iznogood(char *str, int i)
 {
-	int	i;
-
-	i = 0;
 	if (i == 0 && (str[i] <= 'z' && str[i] >= 'a'))
 		return (0);
-	else if (((str[i - 1] >= ' ' && str[i - 1] <= '@') || (str[i - 1] >= '['
+	else if (((str[i - 1] >= ' ' && str[i - 1] <= '/') || (str[i - 1] >= ':'
+				&& str[i - 1] <= '@') || (str[i - 1] >= '['
 				&& str[i - 1] <= '`') || (str[i - 1] >= '{'
-				&& str[i - 1] <= '~')) && (str[i] <= 'z' && str[i] >= 'a') && (!(str[i - 1] >= '0' && str[i - 1] <= '9')))
+				&& str[i - 1] <= '~')) && (str[i] <= 'z' && str[i] >= 'a'))
 		return (0);
 	return (1);
 }
@@ -77,7 +75,7 @@ char	*ft_strcapitalize(char *str)
 	ft_lowcaser(str);
 	while (str[i])
 	{
-		if (iznogood(str) == 0)
+		if (iznogood(str, i) == 0)
 			str[i] = str[i] - 'a' + 'A';
 		i++;
 	}
@@ -95,5 +93,7 @@ int		main()
 	printf("%s\n", c2);
 	printf("%s\n", ft_strcapitalize(c1));
 	printf("%s\n", c);
+	printf("%s\n\n", ft_strcapitalize(c));
+	printf("%s\n", ft_strcapitalize(c1));
 	printf("%s\n", ft_strcapitalize(c));
 }
