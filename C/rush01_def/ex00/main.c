@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 13:46:04 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/20 13:59:05 by abonte-b         ###   ########.fr       */
+/*   Created: 2024/03/24 13:22:45 by kcisse            #+#    #+#             */
+/*   Updated: 2024/03/24 19:32:45 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	sign;
-	int	num;
+#include "rush_01.h"
 
-	i = 0;
-	sign = 1;
-	num = 0;
-	while (str[i] && (str[i] <= 32))
-		i++;
-	while (str[i] == '+' || str[i] == '-')
+int	main(int ac, char **av)
+{
+	int	*av_tab;
+	int	**tab;
+
+	if (ac != 2)
 	{
-		if (str[i] == '-')
-			sign = -sign;
-		i++;
+		ft_putstr(ERROR);
+		return (2);
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	av_tab = check_arg(av[1]);
+	if (free_error_av_tab(av_tab) == 0)
+		return (2);
+	tab = create_map(av_tab);
+	if (!(solve_puzzle(tab)))
 	{
-		num = (num * 10 + (str[i] - 48));
-		i++;
+		ft_putstr(ERROR);
+		free_tab(av_tab, tab);
+		return (2);
 	}
-	num = num * sign;
-	return (num);
+	display_map(tab);
+	free_tab(av_tab, tab);
+	return (0);
 }

@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 13:46:04 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/20 13:59:05 by abonte-b         ###   ########.fr       */
+/*   Created: 2024/03/24 15:50:00 by abonte-b          #+#    #+#             */
+/*   Updated: 2024/03/24 17:22:31 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+#include "rush_01.h"
+
+void	display_map(int **map)
 {
 	int	i;
-	int	sign;
-	int	num;
+	int	j;
 
-	i = 0;
-	sign = 1;
-	num = 0;
-	while (str[i] && (str[i] <= 32))
-		i++;
-	while (str[i] == '+' || str[i] == '-')
+	i = 1;
+	while (i < 5)
 	{
-		if (str[i] == '-')
-			sign = -sign;
+		j = 1;
+		while (j < 5)
+		{
+			ft_putnbr(map[i][j++]);
+			if (j < 5)
+				ft_putchar(' ');
+		}
+		ft_putchar('\n');
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num = (num * 10 + (str[i] - 48));
-		i++;
-	}
-	num = num * sign;
-	return (num);
 }

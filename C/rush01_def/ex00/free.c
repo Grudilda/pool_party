@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 13:46:04 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/20 13:59:05 by abonte-b         ###   ########.fr       */
+/*   Created: 2024/03/24 19:08:30 by abonte-b          #+#    #+#             */
+/*   Updated: 2024/03/24 19:32:26 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+#include "rush_01.h"
+
+void	free_tab(int *av_tab, int **tab)
 {
 	int	i;
-	int	sign;
-	int	num;
 
 	i = 0;
-	sign = 1;
-	num = 0;
-	while (str[i] && (str[i] <= 32))
-		i++;
-	while (str[i] == '+' || str[i] == '-')
+	free(av_tab);
+	while (i < MAP_LENGTH)
 	{
-		if (str[i] == '-')
-			sign = -sign;
+		free(tab[i]);
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	free(tab);
+}
+
+int	free_error_av_tab(int *av_tab)
+{
+	if (!(av_tab))
 	{
-		num = (num * 10 + (str[i] - 48));
-		i++;
+		free(av_tab);
+		ft_putstr(ERROR);
+		return (0);
 	}
-	num = num * sign;
-	return (num);
+	return (2);
 }

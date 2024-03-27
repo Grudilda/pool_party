@@ -1,37 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 13:46:04 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/20 13:59:05 by abonte-b         ###   ########.fr       */
+/*   Created: 2024/03/20 17:05:13 by abonte-b          #+#    #+#             */
+/*   Updated: 2024/03/20 17:08:31 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *str)
 {
 	int	i;
-	int	sign;
-	int	num;
 
 	i = 0;
-	sign = 1;
-	num = 0;
-	while (str[i] && (str[i] <= 32))
-		i++;
-	while (str[i] == '+' || str[i] == '-')
+	while (str[i])
 	{
-		if (str[i] == '-')
-			sign = -sign;
+		ft_putchar(str[i]);
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+}
+
+void	print_arg(char *str)
+{
+	ft_putstr(str);
+	ft_putchar('\n');
+}
+
+int	main(int ac, char **av)
+{
+	int	i;
+
+	i = ac - 1;
+	if (ac != 0)
 	{
-		num = (num * 10 + (str[i] - 48));
-		i++;
+		while (i >= 1)
+		{
+			print_arg(av[i]);
+			i--;
+		}
 	}
-	num = num * sign;
-	return (num);
+	return (0);
 }

@@ -6,11 +6,9 @@
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 13:46:00 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/19 15:05:02 by abonte-b         ###   ########.fr       */
+/*   Updated: 2024/03/20 13:58:54 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 int	ft_strlen(char *str)
 {
@@ -81,7 +79,9 @@ int	ft_atoi_base(char *str, char *base)
 	sign = 1;
 	num = 0;
 	check_base(base);
-	while (str[i] && (str[i] <= 32 || str[i] == '+' || str[i] == '-'))
+	while (str[i] && (str[i] <= 32))
+		i++;
+	while (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
 			sign = -sign;

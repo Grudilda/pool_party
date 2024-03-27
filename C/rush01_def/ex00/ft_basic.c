@@ -1,37 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_basic.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 13:46:04 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/20 13:59:05 by abonte-b         ###   ########.fr       */
+/*   Created: 2024/03/23 14:39:56 by abonte-b          #+#    #+#             */
+/*   Updated: 2024/03/23 14:51:13 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+#include "rush_01.h"
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+int	ft_strlen(char *str)
 {
 	int	i;
-	int	sign;
-	int	num;
 
 	i = 0;
-	sign = 1;
-	num = 0;
-	while (str[i] && (str[i] <= 32))
+	while (str[i])
 		i++;
-	while (str[i] == '+' || str[i] == '-')
+	return (i);
+}
+
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		if (str[i] == '-')
-			sign = -sign;
+		ft_putchar(str[i]);
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+}
+
+void	ft_putnbr(int n)
+{
+	unsigned int	num;
+
+	if (n < 0)
+		ft_putchar('-');
+	if (n < 0)
+		num = n * -1;
+	else
+		num = n;
+	if (num < 10)
+		ft_putchar(num + 48);
+	else
 	{
-		num = (num * 10 + (str[i] - 48));
-		i++;
+		ft_putnbr((num / 10));
+		ft_putnbr((num % 10));
 	}
-	num = num * sign;
-	return (num);
 }
