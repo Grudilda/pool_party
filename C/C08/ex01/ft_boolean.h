@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 13:45:31 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/23 14:45:29 by abonte-b         ###   ########.fr       */
+/*   Created: 2024/03/25 13:25:24 by abonte-b          #+#    #+#             */
+/*   Updated: 2024/03/25 14:08:33 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef FT_BOOLEAN_H
+# define FT_BOOLEAN_H
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+# include <unistd.h>
 
-void	ft_putnbr(int n)
-{
-	unsigned int	num;
+# define SUCCESS 0
+# define ODD_MSG "I have an odd number of arguments.\n"
+# define EVEN_MSG "I have an even number of arguments.\n"
+# define EVEN(x) (x % 2 == 0)
+# define TRUE 0
+# define FALSE 1
 
-	if (n < 0)
-		ft_putchar('-');
-	if (n < 0)
-		num = n * -1;
-	else
-		num = n;
-	if (num < 10)
-		ft_putchar(num + 48);
-	else
-	{
-		ft_putnbr((num / 10));
-		ft_putnbr((num % 10));
-	}
-}
+typedef int	t_bool;
+
+void	ft_putstr(char *str);
+t_bool	ft_is_even(int nbr);
+
+#endif

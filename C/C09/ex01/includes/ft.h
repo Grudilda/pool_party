@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 13:45:31 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/23 14:45:29 by abonte-b         ###   ########.fr       */
+/*   Created: 2024/03/26 11:34:35 by abonte-b          #+#    #+#             */
+/*   Updated: 2024/03/26 11:38:42 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef FT_H
+# define FT_H
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+# include <unistd.h>
 
-void	ft_putnbr(int n)
-{
-	unsigned int	num;
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+void	ft_swap(int *a, int *b);
+int		ft_strlen(char *str);
+int		ft_strcmp(char *s1, char *s2);
 
-	if (n < 0)
-		ft_putchar('-');
-	if (n < 0)
-		num = n * -1;
-	else
-		num = n;
-	if (num < 10)
-		ft_putchar(num + 48);
-	else
-	{
-		ft_putnbr((num / 10));
-		ft_putnbr((num % 10));
-	}
-}
+#endif

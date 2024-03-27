@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonte-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 12:54:54 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/20 18:18:08 by abonte-b         ###   ########.fr       */
+/*   Created: 2019/09/11 22:21:34 by abonte-l          #+#    #+#             */
+/*   Updated: 2019/09/15 11:38:28 by abonte-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_swap(int *a, int *b)
+int		ft_recursive_power(int nb, int power)
 {
-	int	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	return (nb * ft_recursive_power(nb, power - 1));
 }

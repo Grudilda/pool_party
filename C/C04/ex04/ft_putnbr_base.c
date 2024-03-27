@@ -6,7 +6,7 @@
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 13:46:02 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/19 15:03:43 by abonte-b         ###   ########.fr       */
+/*   Updated: 2024/03/27 17:36:27 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,7 @@ unsigned int	check_base(char *base)
 		
 		while (base[j])
 		{
-			if (base[i] == base[j] || base[j] == '+' || base[j] == '-'
-					|| base[i] <= 32 )
+			if (base[i] == base[j] || base[j] == '+' || base[j] == '-')
 				return (-1);
 			j++;
 		}

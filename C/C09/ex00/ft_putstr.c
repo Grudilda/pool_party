@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 13:45:31 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/23 14:45:29 by abonte-b         ###   ########.fr       */
+/*   Created: 2024/03/23 18:57:20 by abonte-b          #+#    #+#             */
+/*   Updated: 2024/03/25 18:10:37 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,14 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int n)
+void	ft_putstr(char *str)
 {
-	unsigned int	num;
+	int	i;
 
-	if (n < 0)
-		ft_putchar('-');
-	if (n < 0)
-		num = n * -1;
-	else
-		num = n;
-	if (num < 10)
-		ft_putchar(num + 48);
-	else
+	i = 0;
+	while (str[i])
 	{
-		ft_putnbr((num / 10));
-		ft_putnbr((num % 10));
+		ft_putchar(str[i]);
+		i++;
 	}
 }

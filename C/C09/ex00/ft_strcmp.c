@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 13:45:31 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/23 14:45:29 by abonte-b         ###   ########.fr       */
+/*   Created: 2024/03/23 18:58:46 by abonte-b          #+#    #+#             */
+/*   Updated: 2024/03/26 10:48:12 by abonte-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	ft_strcmp(char *s1, char *s2)
 {
-	write(1, &c, 1);
-}
+	int	i;
 
-void	ft_putnbr(int n)
-{
-	unsigned int	num;
-
-	if (n < 0)
-		ft_putchar('-');
-	if (n < 0)
-		num = n * -1;
-	else
-		num = n;
-	if (num < 10)
-		ft_putchar(num + 48);
-	else
+	i = 0;
+	while (s1[i] && s2[i])
 	{
-		ft_putnbr((num / 10));
-		ft_putnbr((num % 10));
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
 	}
+	return (s1[i] - s2[i]);
 }

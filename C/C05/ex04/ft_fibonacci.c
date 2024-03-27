@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonte-b <abonte-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonte-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 12:54:54 by abonte-b          #+#    #+#             */
-/*   Updated: 2024/03/20 18:18:08 by abonte-b         ###   ########.fr       */
+/*   Created: 2019/09/11 22:28:39 by abonte-l          #+#    #+#             */
+/*   Updated: 2019/09/11 22:33:58 by abonte-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_swap(int *a, int *b)
+int		ft_fibonacci(int index)
 {
-	int	tmp;
+	int r;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
+	if (index < 0)
+		return (-1);
+	if (index == 0)
+		return (0);
+	if (index == 1)
+		return (1);
+	r = ft_fibonacci(index - 1) + ft_fibonacci(index - 2);
+	return (r);
 }
